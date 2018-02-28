@@ -136,7 +136,7 @@ def simulacao(a,b,c,d,e,f,g,i,h,j,k,x,z): #Estabelecendo uma funcao para a simul
         appended_data.to_csv('outputSantosDumont.csv',sep=';',float_format='%.3f')        
         if i == (ind-1):
             temp1 = appended_data[appended_data['Geracao']== g]
-            arrumados = temp1.sort(columns='ErroTotal', ascending = True)
+            arrumados = temp1.sort_values(by='ErroTotal', ascending = True)
             #print(arrumados)
             arrumadosbuffer.append(arrumados)
       #  print(arrumadosbuffer)
@@ -314,5 +314,6 @@ chart.set_y_axis({'name': 'Erro', 'major_gridlines': {'visible': False}})
 worksheet.insert_chart('H2', chart)
 writer.save()
 Vissim = None
-print(time.time()-start_time)
-print("C'est fini")
+print('Executado em %f' % (time.time()-start_time) + ' segundos')
+print("Fim da execução")
+
